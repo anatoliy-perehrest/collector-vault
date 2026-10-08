@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1000 Advertising Spaces | Collector Vault</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f2e9;color:#222}
+header{background:#171717;color:white;text-align:center;padding:32px 12px}
+header h1{margin:0;font-size:32px}
+header p{color:#d6bd81}
+main{max-width:1100px;margin:auto;padding:18px}
+.intro{text-align:center;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;margin-top:25px}
+.cell{aspect-ratio:1;background:#fff;border:1px solid #d3c6a9;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:11px;cursor:pointer;overflow:hidden}
+.cell:hover{background:#ffe4a1}
+.cell img{width:100%;height:100%;object-fit:cover}
+#info{margin:25px auto;padding:18px;background:white;border-radius:10px;text-align:center}
+a{color:#795300}
+footer{text-align:center;padding:25px;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<h1>1000 Advertising Spaces</h1>
+<p>Collector Vault • Your Place on the Internet</p>
+</header>
+<main>
+<div class="intro">
+<h2>Own Your Advertising Space</h2>
+<p>Choose one of 1000 numbered advertising spaces.</p>
+<p><strong>Introductory price: $10 per space</strong></p>
+<p>Contact us to reserve your space and submit your advertisement.</p>
+</div>
+<div class="grid" id="grid"></div>
+<div id="info">
+<h2 id="chosen">Choose a space</h2>
+<p>Advertise your website, business or collection.</p>
+<a id="contact" href="https://wa.me/380687343034" target="_blank">Contact on WhatsApp</a>
+<p>Spaces are reserved manually after confirmation.</p>
+</div>
+</main>
+<footer>© Collector Vault 2026</footer>
+<script>
+const grid=document.getElementById("grid");
+for(let i=1;i<=1000;i++){
+const cell=document.createElement("div");
+cell.className="cell";
+cell.textContent=i;
+cell.onclick=()=>{
+document.getElementById("chosen").textContent="Advertising space #"+i;
+document.getElementById("contact").href="https://wa.me/380687343034?text="+encodeURIComponent("Hello! I would like to reserve advertising space #"+i);
+document.getElementById("info").scrollIntoView({behavior:"smooth"});
+};
+grid.appendChild(cell);
+}
+</script>
+</body>
+</html>
